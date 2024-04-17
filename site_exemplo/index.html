@@ -1,15 +1,290 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu primeiro site em repositório</title>
+    <title>Olá, Mundo!</title>
+    <header>
+        <h1>Mistérios do Código</h1>
+        <p>Desvendando as profundezas da programação.</p>
+        <hr>
+    </header>
+    <style>
+        header {
+            background: linear-gradient(to right, #de1f1f 0%, #93b3e9 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 5px solid #0a0a0a;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+            animation: slideInFromLeft 1s ease-out;
+        }
+        
+        header p {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2em;
+            margin-top: 5px;
+            font-style: italic;
+            animation: fadeIn 2s;
+        }
+        
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body 
+        { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; }
+        #story-controls { display: flex; margin-top: 10px; }
+        .dot { height: 10px; width: 10px; background-color: #bbb; border-radius: 50%; display: inline-block; margin: 5px; cursor: pointer; }
+        .dot.active { background-color: #444; }
+        .fade-in { animation: fadeIn 1s; }
+        .fade-out { animation: fadeOut 1s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+        pre {
+            color: #0a0a0a;
+            background-color: #f5dcdc;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 1 8px 16px rgba(162, 38, 38, 0.1);
+            animation: pulse 4s infinite ease-in-out;
+            align-items: center;
+            top: 20px;
+            right: 20px;
+            max-width: 200px;
+            .blue { color: blue; }
+            .green { color: green; }
+            .red { color: red; }
+        }
+
+        #story {
+            color: #0a0a0a;
+            background-color: #e7dada;
+            max-width: 800px;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 24px;
+            color: #666;
+            flex-grow: 1;
+            overflow: auto;
+        }
+
+        audio {
+            width: 100%; /* Ajusta a largura do player para se adequar ao container */
+            max-width: 600px; /* Define uma largura máxima */
+            height: 50px; /* Altura do player */
+            border-radius: 25px; /* Bordas arredondadas */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para um efeito elevado */
+            outline: none; /* Remove o contorno quando focado */
+            opacity: 0.8; /* Torna o player um pouco transparente */
+            transition: opacity 0.3s ease; /* Suaviza a transição de opacidade */
+            position: fixed; /* Faz com que fique fixo na tela */
+            bottom: 20px; /* Posicionamento na parte inferior */
+            left: 50%; /* Centraliza na horizontal */
+            transform: translateX(-50%); /* Ajuste fino da centralização */
+        }
+
+        audio:hover {
+            opacity: 1; /* Torna o player totalmente opaco ao passar o mouse */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        .fade-in {
+            animation: fadeIn 2s forwards;
+        }
+
+        .fade-out {
+            animation: fadeOut 2s forwards;
+        }
+        #feedback-container {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 20%;
+            height: 100vh;
+            background-color: #0a0a0a; /* Cor de fundo */
+            color: #FFFFFF; /* Cor de texto branco para contraste */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+
+        #feedback-text {
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+    </style>
 </head>
+<hr>
 <body>
-    <h1>Olá, mundo!</h1>
-    <hr>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio labore nemo dolorum laborum minima deserunt similique dolorem ipsam repudiandae quis veritatis, dignissimos cumque, ad veniam officiis doloremque repellendus sunt amet.</p>
-    <hr>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti iste suscipit eum eos quo dolore aut rerum facere quos a accusantium non, autem sunt, laboriosam voluptas similique modi enim minima.</p>
+    <div id="feedback-container">
+        <div id="feedback-text"></div>
+    </div>
+<div id="story"></div>
+<div id="story-controls"></div>
+    <pre>
+        <span class="blue">______</span>
+      .-'<span class="green">' '</span>-.<span class="red">-</span>. .<span class="red">-</span>. ,|
+     /            \
+    |              |
+    |, .<span class="red">-</span>. .<span class="red">-</span>. ,|
+    | )(__/ \__)( |
+    |/     /\     \|
+    (_     ^^     _)
+     \__|<span class="blue">IIIIII</span>|__/
+      | \<span class="blue">IIIIII</span>/ |
+      \          /
+       `--------`
+       <span class="green">Olá, mundo!</span>
+    </pre>
+    
+    <audio preload="metadata" autoplay controls loop>
+        <source src="TURPAK - Shaping the Future.mp3" type="audio/mpeg">
+        <source src="TURPAK - Shaping the Future.ogg" type="audio/ogg">
+        <source src="TURPAK - Shaping the Future.wav" type="audio/wav">
+        <p>Infelizmente seu navegador não consegue reproduzir áudio. <a href="TURPAK - Shaping the Future.mp3">Clique aqui para baixar o arquivo MP3</a></p>
+    </audio>
+
+    <script>
+        const storyText = [
+            "Em uma era esquecida pelos homens mas registrada nas máquinas, existe a conjuração 'Olá, Mundo!'. Seu eco reverbera através dos corredores do tempo e da tecnologia.",
+            "Essa invocação simples, repleta de paradoxos e mistérios, faz até os mais dedicados estudiosos do código hesitarem antes de explorar suas implicações.",
+            "Este ritual é o primeiro passo para o noviço em programação. As palavras despertam máquinas de seu slumber cibernético, marcando o início de uma jornada e de uma maldição eterna.",
+            "Cada 'Olá, Mundo!' é um pacto selado, uma porta entreaberta que nunca mais se fecha.",
+            "Num cenário como nos romances de Agatha Christie, cada linha de código pode solucionar um problema ou criar um enigma mais complexo.",
+            "Sob a sombra desse conhecimento, os programadores vivem uma busca incessante por soluções em um labirinto de bugs e falhas de sistema.",
+            "A maldição do 'Olá, Mundo!' não está na repetição, mas na sedução de seus segredos. Os que se aventuram a pronunciá-la entram em um ciclo vicioso de aprendizado e desafios.",
+            "Como detetives, eles devem estar alertas para desvendar mistérios que assombram suas criações.",
+            "O mundo do código é uma mansão isolada em uma noite tempestuosa. Cada sala apresenta um novo problema, cada corredor ecoa os passos dos predecessores.",
+            "A sombra de H.P. Lovecraft se faz presente, pois o conhecimento perseguido é quase proibido, cheio de horrores que se escondem nas linhas de código.",
+            "Conforme a noite avança, os programadores são levados de volta às suas máquinas para desvendar o próximo enigma, corrigir o próximo erro.",
+            "Nunca deixando um caso sem solução, os programadores são movidos por uma necessidade implacável de resolver, entender e dominar as máquinas que despertaram.",
+            "'Olá, Mundo!' é mais do que um cumprimento; é um convite a um mistério eterno, um desafio lançado nas profundezas do digital.",
+            "Para os que aceitam o desafio, não há retorno. Eles estão condenados a uma vida de busca, um ciclo sem fim onde cada solução esconde novos enigmas.",
+            "A maldição se perpetua, um legado sombrio de conhecimento e consequência que se estende além do horizonte da compreensão humana."
+        ];
+
+
+        let index = 0;
+
+        function displayPart() {
+            if (index < storyText.length) {
+                const paragraph = document.createElement('p');
+                paragraph.textContent = storyText[index];
+                paragraph.classList.add('fade-in'); // Adiciona a classe de fade-in
+                document.getElementById('story').appendChild(paragraph);
+                index++;
+                setTimeout(() => {
+                    paragraph.classList.remove('fade-in'); // Remove a classe de fade-in após a animação
+                    paragraph.classList.add('fade-out'); // Adiciona a classe de fade-out para remover o trecho
+                    setTimeout(() => {
+                        paragraph.remove(); // Remove o trecho após a animação de fade-out
+                        displayPart(); // Chama a função novamente para exibir o próximo trecho
+                    }, 1000); // Aguarda 1 segundo para a animação de fade-out terminar
+                }, 6000); // Aguarda 5 segundos para a animação de fade-in terminar
+            }
+        }
+
+        function createDots() {
+            const controlsContainer = document.getElementById('story-controls');
+            controlsContainer.innerHTML = '';
+            storyText.forEach((_, idx) => {
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                dot.addEventListener('click', () => {
+                    index = idx;
+                    displayPart();
+                });
+                controlsContainer.appendChild(dot);
+            });
+        }
+
+        function updateDotState() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, idx) => {
+                if (idx === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+    
+    
+    var audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.volume = 0.3; // Define o volume inicial para 30%
+        audioPlayer.play(); // Inicia a reprodução do áudio automaticamente
+    });
+
+
+        displayPart(); // Inicia a exibição dos trechos de texto
+        createDots();
+
+        const feedbackTexts = [
+    "Utilizei HTML para criar a estrutura básica do site, incluindo cabeçalhos, parágrafos e listas, que são os blocos de construção fundamentais para a organização do conteúdo.",
+    "Apliquei CSS para definir o estilo dos elementos HTML, como cores, fontes e espaçamentos, que são essenciais para a aparência visual e a experiência do usuário. Por exemplo, usei gradientes e sombras para adicionar profundidade e atração visual.",
+    "Implementei JavaScript para adicionar interatividade ao site, como animações, formulários interativos e manipulação de eventos do usuário. Por exemplo, criei uma função que atualiza dinamicamente o conteúdo da página com base na interação do usuário.",
+    "Utilizei Git e GitHub para gerenciar o controle de versão do projeto, permitindo que eu rastreie e reverta mudanças, colabore com outros desenvolvedores e mantenha um histórico claro do desenvolvimento do site. Por exemplo, usei branches para desenvolver novas funcionalidades sem afetar o código principal.",
+    "Desenvolvi o site utilizando VSCode como meu ambiente de desenvolvimento, aproveitando suas extensões para análise de código, formatação automática e integração com sistemas de controle de versão. Por exemplo, configurei o GitLens para visualizar informações detalhadas sobre commits e contribuidores diretamente no editor."
+];
+
+        let feedbackIndex = 0;
+        let feedbackCount = 0;
+
+        function displayFeedback() {
+            const feedbackTextElement = document.getElementById('feedback-text');
+            feedbackTextElement.textContent = feedbackTexts[feedbackIndex];
+            feedbackIndex = (feedbackIndex + 1) % feedbackTexts.length;
+            feedbackCount++;
+
+            if (feedbackCount >= 5) {
+                clearInterval(intervalId);
+            }
+        }
+
+        const intervalId = setInterval(displayFeedback, 15000); // 60000 milissegundos = 1 minuto  
+    </script>
 </body>
 </html>
